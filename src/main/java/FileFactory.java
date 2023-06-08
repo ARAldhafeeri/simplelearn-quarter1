@@ -10,7 +10,8 @@ public class FileFactory {
 	}
 	
 	public File getFile(String category) {
-		return new ImageFile();
+		ImageFile imageFile = new ImageFile();
+		return imageFile;
 	}
 
 }
