@@ -1,6 +1,6 @@
 package main.java;
 
-abstract class File {
+public abstract class File {
 	
 	private String fileName;
 	private long fileSize;
