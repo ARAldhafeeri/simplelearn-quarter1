@@ -26,6 +26,8 @@ class UploadFileImpl implements FileManagerStrategey {
     	  File srcFile = new File(uploadPath);
     	  File destFile = new File("file", srcFile.getName());
     	  FileUtils.copyFile(srcFile, destFile);
+    	  System.out.println("File uploaded: " + destFile.getName());
+    	  return true;
 
       } catch (IOException e) {
           e.printStackTrace();

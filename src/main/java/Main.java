@@ -10,13 +10,20 @@ class Main {
 			Scanner sc = new Scanner(System.in);
 			FileManager.run();
 			Integer userSelection = sc.nextInt();
+			String fileName  = "";
+			
+			if(userSelection != 4) {
+				System.out.println("please enter file path e.g. C:/Userrs/User/ e.g. text.txt");
+				fileName = sc.next();
+				String Category = Utils.getExtensionByStringHandling(fileName);
+				File file = FileFactory.getFile(Category);
+				file.setFileName(fileName);
+			}
+	
+			
 			switch (userSelection) {
 			case 1:
 				try {
-					System.out.println("please enter file path e.g. C:/Userrs/User/ e.g. text.txt");
-					String fileName = sc.next();
-					File file = FileFactory.getFile(fileName);
-					file.setFileName(fileName);
 					FileManager.search(fileName);
 				} catch (Exception e) {
 					System.out.println("failed file does not exists");
@@ -24,10 +31,6 @@ class Main {
 		        break;
 			case 2: 
 				try {
-					System.out.println("please enter file name located C:/Userrs/User/");
-					String fileName = sc.next();
-					File file = FileFactory.getFile(fileName);
-					file.setFileName(fileName);
 					FileManager.delete(fileName);
 				} catch (Exception e) {
 					System.out.println("failed file does not exists");
@@ -36,10 +39,6 @@ class Main {
 				
 			case 3: 
 				try {
-					System.out.println("please enter file name located C:/Userrs/User/");
-					String fileName = sc.next();
-					File file = FileFactory.getFile(fileName);
-					file.setFileName(fileName);
 					FileManager.upload(fileName);
 				} catch (Exception e) {
 					System.out.println("failed file does not exists");
